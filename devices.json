@@ -1,0 +1,10 @@
+[
+  {
+    "name": "D1",
+    "ip": "192.168.10.11",
+    "type": "dimmer",
+    "scripts": [
+      { "name": "EntranceLighting", "file": "./scripts/entrance_dark_light.js" }
+    ]
+  }
+]
