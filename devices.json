@@ -4,7 +4,14 @@
     "ip": "192.168.10.11",
     "type": "dimmer",
     "scripts": [
-      { "name": "EntranceLighting", "file": "./scripts/entrance_dark_light.js" }
+      {
+        "name": "EntranceLeftUp",
+        "file": "./scripts/entrance_left_up.js"
+      },
+      {
+        "name": "EntranceLeftDown",
+        "file": "./scripts/entrance_left_down.js"
+      }
     ]
   }
 ]
