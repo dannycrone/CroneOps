@@ -57,7 +57,10 @@ async function deployDevice(device: ShellyDevice): Promise<void> {
     config: {
       wifi_sta1: { enable: false },
       wifi_sta2: { enable: false },
-      wifi_ap: { enable: true },
+      wifi_ap: { 
+        enable: true,
+        ssid: `Shelly-${deviceName}` 
+    },
       eth: {
         enable: true,
         ipv4_mode: "static",
@@ -154,7 +157,8 @@ async function backupConfigs(devices: ShellyDevice[], outputDir: string) {
 (async () => {
   await backupConfigs(devices as ShellyDevice[], "./backups");
 
-  //for (const device of devices as ShellyDevice[]) {
-  //  await tryDeployWithRetry(device);
-  //}
+  for (const device of devices as ShellyDevice[]) {
+    await tryDeployWithRetry(device);
+    console.log(`\n✅ Finished deploying ${device.name || device.ip}`);
+  }
 })();
