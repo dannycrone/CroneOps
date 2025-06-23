@@ -1,0 +1,148 @@
+[
+  {
+    "device": "D1",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "when": "dark",
+        "set": [
+          {
+            "device": "D1",
+            "output": 0,
+            "on": true,
+            "brightness": 80
+          },
+          {
+            "device": "D1",
+            "output": 1,
+            "on": true,
+            "brightness": 80
+          },
+          {
+            "device": "D2",
+            "output": 0,
+            "on": true,
+            "brightness": 80
+          },
+          {
+            "device": "D2",
+            "output": 1,
+            "on": true,
+            "brightness": 80
+          },
+          {
+            "device": "D3",
+            "output": 0,
+            "on": true,
+            "brightness": 80
+          },
+          {
+            "device": "D3",
+            "output": 1,
+            "on": true,
+            "brightness": 80
+          },
+          {
+            "device": "P1",
+            "output": 2,
+            "on": true
+          }
+        ]
+      },
+      {
+        "trigger": "single_push",
+        "when": "light",
+        "set": [
+          {
+            "device": "D1",
+            "output": 0,
+            "on": true,
+            "brightness": 50
+          },
+          {
+            "device": "D1",
+            "output": 1,
+            "on": true,
+            "brightness": 50
+          },
+          {
+            "device": "D2",
+            "output": 0,
+            "on": true,
+            "brightness": 50
+          },
+          {
+            "device": "D2",
+            "output": 1,
+            "on": true,
+            "brightness": 50
+          },
+          {
+            "device": "D3",
+            "output": 0,
+            "on": true,
+            "brightness": 50
+          },
+          {
+            "device": "D3",
+            "output": 1,
+            "on": true,
+            "brightness": 50
+          },
+          {
+            "device": "P1",
+            "output": 2,
+            "on": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D1",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D1",
+            "output": 0,
+            "on": false
+          },
+          {
+            "device": "D1",
+            "output": 1,
+            "on": false
+          },
+          {
+            "device": "D2",
+            "output": 0,
+            "on": false
+          },
+          {
+            "device": "D2",
+            "output": 1,
+            "on": false
+          },
+          {
+            "device": "D3",
+            "output": 0,
+            "on": false
+          },
+          {
+            "device": "D3",
+            "output": 1,
+            "on": false
+          },
+          {
+            "device": "P1",
+            "output": 2,
+            "on": false
+          }
+        ]
+      }
+    ]
+  }
+]

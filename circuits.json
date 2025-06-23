@@ -1,0 +1,692 @@
+[
+  {
+    "circuit": "CX",
+    "location": "Garden",
+    "code": "P1O1-GEG-CX",
+    "description": "SECURITY LIGHT"
+  },
+  {
+    "circuit": "C1",
+    "location": "Garden",
+    "code": "P1O2-GEG-C1",
+    "description": "Large Uplight"
+  },
+  {
+    "circuit": "C2",
+    "location": "Garden",
+    "code": "P1O3-GEG-C2",
+    "description": "LED tape"
+  },
+  {
+    "circuit": "C3",
+    "location": "Garden",
+    "code": "P1O4-GEG-C3",
+    "description": "Up/down wall light"
+  },
+  {
+    "circuit": "C4",
+    "location": "Garden",
+    "code": "P2O1-GEG-C4",
+    "description": "Large uplights"
+  },
+  {
+    "circuit": "C5",
+    "location": "Garden",
+    "code": "P2O2-GEG-C5",
+    "description": "Spiked Spot"
+  },
+  {
+    "circuit": "C6",
+    "location": "Garden",
+    "code": "P2O3-GEG-C6",
+    "description": "Mini Uplights"
+  },
+  {
+    "circuit": "C6",
+    "location": "Garden",
+    "code": "P2O3-GEG-C6",
+    "description": "Path wash light"
+  },
+  {
+    "circuit": "C7",
+    "location": "Garden",
+    "code": "P2O4-GEG-C7",
+    "description": "Spiked Spot"
+  },
+  {
+    "circuit": "C8",
+    "location": "Garden",
+    "code": "P3O1-GEG-C8",
+    "description": "Supply"
+  },
+  {
+    "circuit": "C9",
+    "location": "Garden",
+    "code": "P3O2-GEG-C9",
+    "description": "Supply"
+  },
+  {
+    "circuit": "C10",
+    "location": "Garden",
+    "code": "P3O3-GEG-C10",
+    "description": "Supply"
+  },
+  {
+    "circuit": "C1",
+    "location": "Entrance Hall",
+    "code": "D1O1-GEH-C1",
+    "description": "Pendant"
+  },
+  {
+    "circuit": "C2",
+    "location": "Entrance Hall",
+    "code": "D1O2-GEH-C2",
+    "description": "Directional Downlight"
+  },
+  {
+    "circuit": "C3",
+    "location": "Entrance Hall",
+    "code": "D2O1-GEH-C3",
+    "description": "Floor Washer"
+  },
+  {
+    "circuit": "C4",
+    "location": "Entrance Hall",
+    "code": "D2O2-GEH-C4",
+    "description": "Mini LED uplight"
+  },
+  {
+    "circuit": "S1",
+    "location": "Entrance Hall",
+    "code": "D1S1-GEH-S1",
+    "description": "2 Switches connected to S1-4"
+  },
+  {
+    "circuit": "S2",
+    "location": "Entrance Hall",
+    "code": "D2S1-GEH-S2",
+    "description": "1 Switch connected S1-2"
+  },
+  {
+    "circuit": "C5",
+    "location": "Entrance Landing",
+    "code": "D3O1-FEL-C5",
+    "description": "Wall Light"
+  },
+  {
+    "circuit": "C6",
+    "location": "Entrance Landing",
+    "code": "D3O2-FEL-C6",
+    "description": "Plaster Up/down wall light"
+  },
+  {
+    "circuit": "S3",
+    "location": "Entrance Landing",
+    "code": "D2S3-FEL-S3",
+    "description": "1 Switch connected S1-2"
+  },
+  {
+    "circuit": "S4",
+    "location": "Entrance Landing",
+    "code": "D3S1-FEL-S4",
+    "description": "2 Switches connected to S1-4"
+  },
+  {
+    "circuit": "R1",
+    "location": "Entrance Landing",
+    "code": "P1S1-FEL-R1",
+    "description": "PIR connected to S1"
+  },
+  {
+    "circuit": "C1",
+    "location": "Study",
+    "code": "D4O1-GSD-C1",
+    "description": "Directional Downlight"
+  },
+  {
+    "circuit": "C2",
+    "location": "Study",
+    "code": "D402-GSD-C2",
+    "description": "LED tape"
+  },
+  {
+    "circuit": "S1",
+    "location": "Study",
+    "code": "D4S1-GSD-S1",
+    "description": "1 Switch connected S1-2"
+  },
+  {
+    "circuit": "C1",
+    "location": "Lounge",
+    "code": "D5O1-GLG-C1",
+    "description": "Double downlight"
+  },
+  {
+    "circuit": "C2",
+    "location": "Lounge",
+    "code": "D5O2-GLG-C2",
+    "description": "Directional Downlight"
+  },
+  {
+    "circuit": "C3",
+    "location": "Lounge",
+    "code": "D6O1-GLG-C3",
+    "description": "Supply - TBC"
+  },
+  {
+    "circuit": "C4",
+    "location": "Lounge",
+    "code": "D6O2-GLG-C4",
+    "description": "Under cupboard lights - TBC"
+  },
+  {
+    "circuit": "C5",
+    "location": "Lounge",
+    "code": "NA-GLG-C5",
+    "description": "Mini LED uplight these are deleted and replaced with C7 below"
+  },
+  {
+    "circuit": "C6",
+    "location": "Lounge",
+    "code": "MCB-GLG-C6",
+    "description": "Was C6 5amp but now regular 2 gang socket"
+  },
+  {
+    "circuit": "S1",
+    "location": "Lounge",
+    "code": "D5S1-GLG-S1",
+    "description": "2 Switches connected to S1-4"
+  },
+  {
+    "circuit": "C1",
+    "location": "Dining Kitchen",
+    "code": "D7O1-GKD-C1",
+    "description": "Pendant"
+  },
+  {
+    "circuit": "C2",
+    "location": "Dining Kitchen",
+    "code": "D7O2-GKD-C2",
+    "description": "Pendant"
+  },
+  {
+    "circuit": "C3",
+    "location": "Dining Kitchen",
+    "code": "D8O1-GKD-C3",
+    "description": "Directional Downlight"
+  },
+  {
+    "circuit": "C4",
+    "location": "Dining Kitchen",
+    "code": "D8O2-GKD-C4",
+    "description": "Directional Downlight"
+  },
+  {
+    "circuit": "C5",
+    "location": "Dining Kitchen",
+    "code": "NA-GKD-C5",
+    "description": "Directional Downlight Delete"
+  },
+  {
+    "circuit": "C6",
+    "location": "Dining Kitchen",
+    "code": "D9O1-GKD-C6",
+    "description": "LED tape"
+  },
+  {
+    "circuit": "C7",
+    "location": "Dining Kitchen",
+    "code": "P4O1-GKD-C7",
+    "description": "Mini LED uplight"
+  },
+  {
+    "circuit": "C8",
+    "location": "Dining Kitchen",
+    "code": "D9O2-GKD-C8",
+    "description": "LED tape"
+  },
+  {
+    "circuit": "C9",
+    "location": "Dining Kitchen",
+    "code": "D10O1-GKD-C9",
+    "description": "Under cupboard lights"
+  },
+  {
+    "circuit": "C10",
+    "location": "Dining Kitchen",
+    "code": "NA-GKD-C10",
+    "description": "5amp - Delete"
+  },
+  {
+    "circuit": "S1",
+    "location": "Dining Kitchen",
+    "code": "D7S1-GKD-S1",
+    "description": "2 Switches connected to S1-4"
+  },
+  {
+    "circuit": "S2",
+    "location": "Dining Kitchen",
+    "code": "D8S1-GKD-S2",
+    "description": "2 Switches connected to S1-4"
+  },
+  {
+    "circuit": "C1",
+    "location": "Pantry",
+    "code": "D10O2-GPR-C1",
+    "description": "Directional Downlight"
+  },
+  {
+    "circuit": "C2",
+    "location": "Pantry",
+    "code": "D11O1-GPR-C2",
+    "description": "LED tape"
+  },
+  {
+    "circuit": "S1",
+    "location": "Pantry",
+    "code": "D7S1-GPR-S1",
+    "description": "2 Switches connected to S1-4"
+  },
+  {
+    "circuit": "C1",
+    "location": "Laundry",
+    "code": "D11O2-GLR-C1",
+    "description": "Directional Downlight"
+  },
+  {
+    "circuit": "R1",
+    "location": "Laundry",
+    "code": "P1S2-GLR-R1",
+    "description": "PIR connected to S2"
+  },
+  {
+    "circuit": "C1",
+    "location": "Plant Room",
+    "code": "D12O1-GPT-C1",
+    "description": "Double downlight"
+  },
+  {
+    "circuit": "C2",
+    "location": "Plant Room",
+    "code": "D12O2-GPT-C2",
+    "description": "Wall Light"
+  },
+  {
+    "circuit": "R1",
+    "location": "Plant Room",
+    "code": "P1S3-GPT-R1",
+    "description": "PIR connected to S3"
+  },
+  {
+    "circuit": "S1",
+    "location": "Plant Room",
+    "code": "D12S1-GPT-S1",
+    "description": "2 Switches connected to S1-4"
+  },
+  {
+    "circuit": "C1",
+    "location": "WC/Wet room",
+    "code": "D13O1-GWC-C1",
+    "description": "Directional Downlight"
+  },
+  {
+    "circuit": "C1",
+    "location": "WC/Wet room",
+    "code": "D13O1-GWC-C1",
+    "description": "IP rated downlight"
+  },
+  {
+    "circuit": "C4",
+    "location": "WC/Wet room",
+    "code": "?-GWC-C4",
+    "description": "IP rated LED, Benchlight"
+  },
+  {
+    "circuit": "C2",
+    "location": "WC/Wet room",
+    "code": "P4O2-GWC-C2",
+    "description": "Floor Washer - could be joined with C3?"
+  },
+  {
+    "circuit": "C3",
+    "location": "WC/Wet room",
+    "code": "P4O3-GWC-C3",
+    "description": "Supply - could be joined with C2?"
+  },
+  {
+    "circuit": "R1",
+    "location": "WC/Wet room",
+    "code": "P1S4-GWC-R1",
+    "description": "PIR connected to S4"
+  },
+  {
+    "circuit": "C1",
+    "location": "Games room",
+    "code": "D14O1-GGR-C1",
+    "description": "Directional Downlight"
+  },
+  {
+    "circuit": "C2",
+    "location": "Games room",
+    "code": "NA-GGR-C2",
+    "description": "5amp - Delete"
+  },
+  {
+    "circuit": "S1",
+    "location": "Games room",
+    "code": "D14S1-GGR-S1",
+    "description": "2 Switches connected to S1-4"
+  },
+  {
+    "circuit": "C1",
+    "location": "Master Dressing",
+    "code": "D15O1-FMD-C1",
+    "description": "Directional Downlight"
+  },
+  {
+    "circuit": "C2",
+    "location": "Master Dressing",
+    "code": "D15O2-FMD-C2",
+    "description": "Directional Downlight"
+  },
+  {
+    "circuit": "C3",
+    "location": "Master Dressing",
+    "code": "D16O1-FMD-C3",
+    "description": "LED tape"
+  },
+  {
+    "circuit": "S1",
+    "location": "Master Dressing",
+    "code": "D15S1-FMD-S1",
+    "description": "2 Switches connected to S1-4"
+  },
+  {
+    "circuit": "S2",
+    "location": "Master Dressing",
+    "code": "D16S1-FMD-S2",
+    "description": "2 Switches connected to S1-4"
+  },
+  {
+    "circuit": "C1",
+    "location": "Master Ensuite",
+    "code": "D16O2-FME-C1",
+    "description": "Directional Downlight"
+  },
+  {
+    "circuit": "C1",
+    "location": "Master Ensuite",
+    "code": "D16O2-FME-C1",
+    "description": "IP rated downlight"
+  },
+  {
+    "circuit": "C2",
+    "location": "Master Ensuite",
+    "code": "D17O1-FME-C2",
+    "description": "LED tape"
+  },
+  {
+    "circuit": "C3",
+    "location": "Master Ensuite",
+    "code": "D17O2-FME-C3",
+    "description": "Wall Light"
+  },
+  {
+    "circuit": "C4",
+    "location": "Master Ensuite",
+    "code": "D18O1-FME-C4",
+    "description": "Floor Washer - can this be on dimmer 240V?"
+  },
+  {
+    "circuit": "R1",
+    "location": "Master Ensuite",
+    "code": "P2S1-FME-R1",
+    "description": "PIR connected to S1"
+  },
+  {
+    "circuit": "C1",
+    "location": "Master Bed",
+    "code": "D18O2-FMB-C1",
+    "description": "Pendant"
+  },
+  {
+    "circuit": "C2",
+    "location": "Master Bed",
+    "code": "D19O1-FMB-C2",
+    "description": "Pendant"
+  },
+  {
+    "circuit": "C3",
+    "location": "Master Bed",
+    "code": "D19O2-FMB-C3",
+    "description": "Wall Light"
+  },
+  {
+    "circuit": "C4",
+    "location": "Master Bed",
+    "code": "NA-FMB-C4",
+    "description": "5amp - Delete"
+  },
+  {
+    "circuit": "C5",
+    "location": "Master Bed",
+    "code": "D20O1-FMB-C5",
+    "description": "Mini LED uplight"
+  },
+  {
+    "circuit": "C6",
+    "location": "Master Bed",
+    "code": "D20O2-FMB-C6",
+    "description": "Supply"
+  },
+  {
+    "circuit": "S1",
+    "location": "Master Bed",
+    "code": "D19S1-FMB-S1",
+    "description": "2 Switches connected to S1-4"
+  },
+  {
+    "circuit": "R1",
+    "location": "Master Bed",
+    "code": "P3S1-FMB-R1",
+    "description": "PIR connected to S1 - On underside of Brise soleil"
+  },
+  {
+    "circuit": "C1",
+    "location": "Bed 2",
+    "code": "D21O2-FB2-C1",
+    "description": "Pendant"
+  },
+  {
+    "circuit": "C2",
+    "location": "Bed 2",
+    "code": "NA-FB2-C2",
+    "description": "5amp - Delete"
+  },
+  {
+    "circuit": "C3",
+    "location": "Bed 2",
+    "code": "D22O1-FB2-C3",
+    "description": "LED tape"
+  },
+  {
+    "circuit": "S1",
+    "location": "Bed 2",
+    "code": "D21S1-FB2-S1",
+    "description": "1 Switch connected S1-2"
+  },
+  {
+    "circuit": "S2",
+    "location": "Bed 2",
+    "code": "D21S3-FB2-S2",
+    "description": "1 Switch connected S3-4"
+  },
+  {
+    "circuit": "C1",
+    "location": "Ensuite 2",
+    "code": "D22O2-FE2-C1",
+    "description": "IP rated downlight"
+  },
+  {
+    "circuit": "C1",
+    "location": "Ensuite 2",
+    "code": "D22O2-FE2-C1",
+    "description": "Directional Downlight"
+  },
+  {
+    "circuit": "C2",
+    "location": "Ensuite 2",
+    "code": "D23O1-FE2-C2",
+    "description": "LED tape"
+  },
+  {
+    "circuit": "C3",
+    "location": "Ensuite 2",
+    "code": "D23O2-FE2-C3",
+    "description": "Supply"
+  },
+  {
+    "circuit": "C4",
+    "location": "Ensuite 2",
+    "code": "D24O1-FE2-C4",
+    "description": "Mini LED uplight - can this be on dimmer 240V?"
+  },
+  {
+    "circuit": "R1",
+    "location": "Ensuite 2",
+    "code": "P2S2-FE2-R1",
+    "description": "PIR connected to S2"
+  },
+  {
+    "circuit": "C1",
+    "location": "Bed 3",
+    "code": "D24O2-FB3-C1",
+    "description": "Pendant"
+  },
+  {
+    "circuit": "C2",
+    "location": "Bed 3",
+    "code": "NA-FB3-C2",
+    "description": "5amp - Delete"
+  },
+  {
+    "circuit": "C3",
+    "location": "Bed 3",
+    "code": "D25O1-FB3-C3",
+    "description": "Supply"
+  },
+  {
+    "circuit": "C4",
+    "location": "Bed 3",
+    "code": "D25O2-FB3-C4",
+    "description": "Directional Downlight"
+  },
+  {
+    "circuit": "S1",
+    "location": "Bed 3",
+    "code": "D25S1-FB3-S1",
+    "description": "2 Switches connected to S1-4"
+  },
+  {
+    "circuit": "C1",
+    "location": "Ensuite 3",
+    "code": "D26O1-FE3-C1",
+    "description": "Directional Downlight"
+  },
+  {
+    "circuit": "C1",
+    "location": "Ensuite 3",
+    "code": "D26O1-FE3-C1",
+    "description": "IP rated downlight"
+  },
+  {
+    "circuit": "C2",
+    "location": "Ensuite 3",
+    "code": "P5O1-FE3-C2",
+    "description": "Niche Light"
+  },
+  {
+    "circuit": "C3",
+    "location": "Ensuite 3",
+    "code": "P5O2-FE3-C3",
+    "description": "LED tape"
+  },
+  {
+    "circuit": "R1",
+    "location": "Ensuite 3",
+    "code": "P2S3-FE3-R1",
+    "description": "PIR connected to S3"
+  },
+  {
+    "circuit": "C1",
+    "location": "Bed 4",
+    "code": "D27O1-FB4-C1",
+    "description": "Pendant"
+  },
+  {
+    "circuit": "C2",
+    "location": "Bed 4",
+    "code": "D29O1-FB4-C2",
+    "description": "Was 5amp, now deleted but replaced with Directional Downlight"
+  },
+  {
+    "circuit": "C3",
+    "location": "Bed 4",
+    "code": "D27O2-FB4-C3",
+    "description": "Supply"
+  },
+  {
+    "circuit": "S1",
+    "location": "Bed 4",
+    "code": "D26S1-FB4-S1",
+    "description": "2 Switches connected to S1-4"
+  },
+  {
+    "circuit": "S2",
+    "location": "Bed 4",
+    "code": "D27S1-FB4-S2",
+    "description": "2 Switches connected to S1-4"
+  },
+  {
+    "circuit": "C1",
+    "location": "Ensuite 4",
+    "code": "D28O1-FE4-C1",
+    "description": "Directional Downlight"
+  },
+  {
+    "circuit": "C1",
+    "location": "Ensuite 4",
+    "code": "D28O1-FE4-C1",
+    "description": "IP rated downlight"
+  },
+  {
+    "circuit": "C2",
+    "location": "Ensuite 4",
+    "code": "P6O1-FE4-C2",
+    "description": "Floor Washer"
+  },
+  {
+    "circuit": "C2",
+    "location": "Ensuite 4",
+    "code": "P6O1-FE4-C2",
+    "description": "Niche Light"
+  },
+  {
+    "circuit": "C3",
+    "location": "Ensuite 4",
+    "code": "P6O2-FE4-C3",
+    "description": "Supply"
+  },
+  {
+    "circuit": "C4",
+    "location": "Ensuite 4",
+    "code": "P6O3-FE4-C4",
+    "description": "LED tape"
+  },
+  {
+    "circuit": "R1",
+    "location": "Ensuite 4",
+    "code": "P2S4-FE4-R1",
+    "description": "PIR connected to S4"
+  }
+]

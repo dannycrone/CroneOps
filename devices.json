@@ -1,16 +1,1645 @@
 [
   {
-    "name": "D1",
-    "ip": "192.168.10.11",
-    "type": "dimmer",
-    "scripts": [
+    "name": "P1",
+    "ip": "192.168.10.51",
+    "mac": "",
+    "type": "relay",
+    "inputs": [
       {
-        "name": "EntranceLeftUp",
-        "file": "./scripts/entrance_left_up.js"
+        "index": 0,
+        "location": "Entrance Landing",
+        "circuit": "PIR R1",
+        "actions": []
       },
       {
-        "name": "EntranceLeftDown",
-        "file": "./scripts/entrance_left_down.js"
+        "index": 1,
+        "location": "Laundry",
+        "circuit": "PIR R1",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Plant Room",
+        "circuit": "PIR R1",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "WC/Wet room",
+        "circuit": "PIR R1",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Garden",
+        "circuit": "CX"
+      },
+      {
+        "index": 1,
+        "location": "Garden",
+        "circuit": "C1"
+      },
+      {
+        "index": 2,
+        "location": "Garden",
+        "circuit": "C2"
+      },
+      {
+        "index": 3,
+        "location": "Garden",
+        "circuit": "C3"
+      }
+    ]
+  },
+  {
+    "name": "P2",
+    "ip": "192.168.10.52",
+    "mac": "",
+    "type": "relay",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Master Ensuite",
+        "circuit": "PIR R1",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Ensuite 2",
+        "circuit": "PIR R1",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Ensuite 3",
+        "circuit": "PIR R1",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "Ensuite 4",
+        "circuit": "PIR R1",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Garden",
+        "circuit": "C4"
+      },
+      {
+        "index": 1,
+        "location": "Garden",
+        "circuit": "C5"
+      },
+      {
+        "index": 2,
+        "location": "Garden",
+        "circuit": "C6"
+      },
+      {
+        "index": 3,
+        "location": "Garden",
+        "circuit": "C7"
+      }
+    ]
+  },
+  {
+    "name": "P3",
+    "ip": "192.168.10.53",
+    "mac": "",
+    "type": "relay",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Master Bed",
+        "circuit": "PIR R1",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Garden",
+        "circuit": "C8"
+      },
+      {
+        "index": 1,
+        "location": "Garden",
+        "circuit": "C9"
+      },
+      {
+        "index": 2,
+        "location": "Garden",
+        "circuit": "C10"
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA"
+      }
+    ]
+  },
+  {
+    "name": "P4",
+    "ip": "192.168.10.54",
+    "mac": "",
+    "type": "relay",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Dining Kitchen",
+        "circuit": "C7"
+      },
+      {
+        "index": 1,
+        "location": "WC/Wet room",
+        "circuit": "C2"
+      },
+      {
+        "index": 2,
+        "location": "WC/Wet room",
+        "circuit": "C3"
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA"
+      }
+    ]
+  },
+  {
+    "name": "P5",
+    "ip": "192.168.10.55",
+    "mac": "",
+    "type": "relay",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Ensuite 3",
+        "circuit": "C2"
+      },
+      {
+        "index": 1,
+        "location": "Ensuite 3",
+        "circuit": "C3"
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA"
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA"
+      }
+    ]
+  },
+  {
+    "name": "P6",
+    "ip": "192.168.10.56",
+    "mac": "",
+    "type": "relay",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Ensuite 4",
+        "circuit": "C2"
+      },
+      {
+        "index": 1,
+        "location": "Ensuite 4",
+        "circuit": "C3"
+      },
+      {
+        "index": 2,
+        "location": "Ensuite 4",
+        "circuit": "C4"
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA"
+      }
+    ]
+  },
+  {
+    "name": "D1",
+    "ip": "192.168.10.11",
+    "mac": "2c:bc:bb:9e:c6:83",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Entrance Hall",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Entrance Hall",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Entrance Hall",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "Entrance Hall",
+        "circuit": "Switch S1",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Entrance Hall",
+        "circuit": "C1"
+      },
+      {
+        "index": 1,
+        "location": "Entrance Hall",
+        "circuit": "C2"
+      }
+    ]
+  },
+  {
+    "name": "D2",
+    "ip": "192.168.10.12",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Entrance Hall",
+        "circuit": "Switch S2",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Entrance Hall",
+        "circuit": "Switch S2",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Entrance Landing",
+        "circuit": "Switch S3",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "Entrance Landing",
+        "circuit": "Switch S3",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Entrance Hall",
+        "circuit": "C3"
+      },
+      {
+        "index": 1,
+        "location": "Entrance Hall",
+        "circuit": "C4"
+      }
+    ]
+  },
+  {
+    "name": "D3",
+    "ip": "192.168.10.13",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Entrance Landing",
+        "circuit": "Switch S4",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Entrance Landing",
+        "circuit": "Switch S4",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Entrance Landing",
+        "circuit": "Switch S4",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "Entrance Landing",
+        "circuit": "Switch S4",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Entrance Landing",
+        "circuit": "C5"
+      },
+      {
+        "index": 1,
+        "location": "Entrance Landing",
+        "circuit": "C6"
+      }
+    ]
+  },
+  {
+    "name": "D4",
+    "ip": "192.168.10.14",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Study",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Study",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Study",
+        "circuit": "C1"
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA"
+      }
+    ]
+  },
+  {
+    "name": "D5",
+    "ip": "192.168.10.15",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Lounge",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Lounge",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Lounge",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "Lounge",
+        "circuit": "Switch S1",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Lounge",
+        "circuit": "C1"
+      },
+      {
+        "index": 1,
+        "location": "Lounge",
+        "circuit": "C2"
+      }
+    ]
+  },
+  {
+    "name": "D6",
+    "ip": "192.168.10.16",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Lounge",
+        "circuit": "C3"
+      },
+      {
+        "index": 1,
+        "location": "Lounge",
+        "circuit": "C4"
+      }
+    ]
+  },
+  {
+    "name": "D7",
+    "ip": "192.168.10.17",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Dining Kitchen",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Dining Kitchen",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Dining Kitchen",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "Dining Kitchen",
+        "circuit": "Switch S1",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Dining Kitchen",
+        "circuit": "C1"
+      },
+      {
+        "index": 1,
+        "location": "Dining Kitchen",
+        "circuit": "C2"
+      }
+    ]
+  },
+  {
+    "name": "D8",
+    "ip": "192.168.10.18",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Dining Kitchen",
+        "circuit": "Switch S2",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Dining Kitchen",
+        "circuit": "Switch S2",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Dining Kitchen",
+        "circuit": "Switch S2",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "Dining Kitchen",
+        "circuit": "Switch S2",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Dining Kitchen",
+        "circuit": "C3"
+      },
+      {
+        "index": 1,
+        "location": "Dining Kitchen",
+        "circuit": "C4"
+      }
+    ]
+  },
+  {
+    "name": "D9",
+    "ip": "192.168.10.19",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Dining Kitchen",
+        "circuit": "C6"
+      },
+      {
+        "index": 1,
+        "location": "Dining Kitchen",
+        "circuit": "C8"
+      }
+    ]
+  },
+  {
+    "name": "D10",
+    "ip": "192.168.10.20",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Dining Kitchen",
+        "circuit": "C9"
+      },
+      {
+        "index": 1,
+        "location": "Pantry",
+        "circuit": "C1"
+      }
+    ]
+  },
+  {
+    "name": "D11",
+    "ip": "192.168.10.21",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Pantry",
+        "circuit": "C2"
+      },
+      {
+        "index": 1,
+        "location": "Laundry",
+        "circuit": "C1"
+      }
+    ]
+  },
+  {
+    "name": "D12",
+    "ip": "192.168.10.22",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Plant Room",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Plant Room",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Plant Room",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "Plant Room",
+        "circuit": "Switch S1",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Plant Room",
+        "circuit": "C1"
+      },
+      {
+        "index": 1,
+        "location": "Plant Room",
+        "circuit": "C2"
+      }
+    ]
+  },
+  {
+    "name": "D13",
+    "ip": "192.168.10.23",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "WC/Wet room",
+        "circuit": "C1"
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA"
+      }
+    ]
+  },
+  {
+    "name": "D14",
+    "ip": "192.168.10.24",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Games room",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Games room",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Games room",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "Games room",
+        "circuit": "Switch S1",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Games room",
+        "circuit": "C1"
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA"
+      }
+    ]
+  },
+  {
+    "name": "D15",
+    "ip": "192.168.10.25",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Master Dressing",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Master Dressing",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Master Dressing",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "Master Dressing",
+        "circuit": "Switch S1",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Master Dressing",
+        "circuit": "C1"
+      },
+      {
+        "index": 1,
+        "location": "Master Dressing",
+        "circuit": "C2"
+      }
+    ]
+  },
+  {
+    "name": "D16",
+    "ip": "192.168.10.26",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Master Dressing",
+        "circuit": "Switch S2",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Master Dressing",
+        "circuit": "Switch S2",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Master Dressing",
+        "circuit": "Switch S2",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "Master Dressing",
+        "circuit": "Switch S2",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Master Dressing",
+        "circuit": "C3"
+      },
+      {
+        "index": 1,
+        "location": "Master Ensuite",
+        "circuit": "C1"
+      }
+    ]
+  },
+  {
+    "name": "D17",
+    "ip": "192.168.10.27",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Master Ensuite",
+        "circuit": "C2"
+      },
+      {
+        "index": 1,
+        "location": "Master Ensuite",
+        "circuit": "C3"
+      }
+    ]
+  },
+  {
+    "name": "D18",
+    "ip": "192.168.10.28",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Master Ensuite",
+        "circuit": "C4"
+      },
+      {
+        "index": 1,
+        "location": "Master Bed",
+        "circuit": "C1"
+      }
+    ]
+  },
+  {
+    "name": "D19",
+    "ip": "192.168.10.29",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Master Bed",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Master Bed",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Master Bed",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "Master Bed",
+        "circuit": "Switch S1",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Master Bed",
+        "circuit": "C2"
+      },
+      {
+        "index": 1,
+        "location": "Master Bed",
+        "circuit": "C3"
+      }
+    ]
+  },
+  {
+    "name": "D20",
+    "ip": "192.168.10.30",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Master Bed",
+        "circuit": "C5"
+      },
+      {
+        "index": 1,
+        "location": "Master Bed",
+        "circuit": "C6"
+      }
+    ]
+  },
+  {
+    "name": "D21",
+    "ip": "192.168.10.31",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Bed 2",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Bed 2",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Bed 2",
+        "circuit": "Switch S2",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "Bed 2",
+        "circuit": "Switch S2",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Master Bed",
+        "circuit": "BC3"
+      },
+      {
+        "index": 1,
+        "location": "Bed 2",
+        "circuit": "C1"
+      }
+    ]
+  },
+  {
+    "name": "D22",
+    "ip": "192.168.10.32",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Bed 2",
+        "circuit": "C3"
+      },
+      {
+        "index": 1,
+        "location": "Ensuite 2",
+        "circuit": "C1"
+      }
+    ]
+  },
+  {
+    "name": "D23",
+    "ip": "192.168.10.33",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Ensuite 2",
+        "circuit": "C2"
+      },
+      {
+        "index": 1,
+        "location": "Ensuite 2",
+        "circuit": "C3"
+      }
+    ]
+  },
+  {
+    "name": "D24",
+    "ip": "192.168.10.34",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Ensuite 2",
+        "circuit": "C4"
+      },
+      {
+        "index": 1,
+        "location": "Bed 3",
+        "circuit": "C1"
+      }
+    ]
+  },
+  {
+    "name": "D25",
+    "ip": "192.168.10.35",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Bed 3",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Bed 3",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Bed 3",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "Bed 3",
+        "circuit": "Switch S1",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Bed 3",
+        "circuit": "C3"
+      },
+      {
+        "index": 1,
+        "location": "Bed 3",
+        "circuit": "C4"
+      }
+    ]
+  },
+  {
+    "name": "D26",
+    "ip": "192.168.10.36",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Bed 4",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Bed 4",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Bed 4",
+        "circuit": "Switch S1",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "Bed 4",
+        "circuit": "Switch S1",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Ensuite 3",
+        "circuit": "C1"
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA"
+      }
+    ]
+  },
+  {
+    "name": "D27",
+    "ip": "192.168.10.37",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "Bed 4",
+        "circuit": "Switch S2",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "Bed 4",
+        "circuit": "Switch S2",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "Bed 4",
+        "circuit": "Switch S2",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "Bed 4",
+        "circuit": "Switch S2",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Bed 4",
+        "circuit": "C1"
+      },
+      {
+        "index": 1,
+        "location": "Bed 4",
+        "circuit": "C3"
+      }
+    ]
+  },
+  {
+    "name": "D28",
+    "ip": "192.168.10.38",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Ensuite 4",
+        "circuit": "C1"
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA"
+      }
+    ]
+  },
+  {
+    "name": "D29",
+    "ip": "192.168.10.39",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "Bed 4",
+        "circuit": "C2"
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA"
+      }
+    ]
+  },
+  {
+    "name": "D30",
+    "ip": "192.168.10.40",
+    "mac": "",
+    "type": "dimmer",
+    "inputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 2,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      },
+      {
+        "index": 3,
+        "location": "not used",
+        "circuit": "NA",
+        "actions": []
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "location": "not used",
+        "circuit": "NA"
+      },
+      {
+        "index": 1,
+        "location": "not used",
+        "circuit": "NA"
       }
     ]
   }
