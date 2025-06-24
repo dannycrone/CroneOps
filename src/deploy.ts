@@ -1,13 +1,14 @@
-
 import axios from "axios";
-import fs from "fs";
 import path from "path";
 import dotenv from "dotenv";
 import { generateScript } from "./generateScript";
+import devicesData from "../devices.json";
+import actionsData from "../actions.json";
+
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
-const devices = require("../devices.json");
-const actions = require("../actions.json");
+const devices = devicesData as ShellyDevice[];
+const actions = actionsData as ActionSet[];
 
 const GATEWAY = process.env.GATEWAY;
 const DNS = process.env.DNS;
@@ -68,14 +69,6 @@ async function configureDevice(device: ShellyDevice, allDeviceMap: Record<string
         lat: parseFloat(LAT!),
         lon: parseFloat(LON!)
       },
-      // eth: {
-      //   enable: true,
-      //   ipv4_mode: "static",
-      //   ip: device.ip,
-      //   netmask: NETMASK,
-      //   gw: GATEWAY,
-      //   dns: DNS
-      // },
     }
   });
   console.log(`\n⚙️ Configured ${device.name} (${device.ip})...`);
