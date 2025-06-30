@@ -49,11 +49,11 @@ async function configureDevice(device: ShellyDevice, allDeviceMap: Record<string
       deviceMap[d.name] = { ip: d.ip, type: d.type };
     }
 
-    for (const inputAction of relevantActions) {
-      const code = ScriptGenerator.generate(inputAction, device.name, deviceMap);
-      await configurer.uploadScript(`input_${inputAction.input}`, code);
-      console.log(`✅ Script for input ${inputAction.input} uploaded`);
-    }
+    // Generate a single script for all inputs on this device
+    const code = ScriptGenerator.generate(relevantActions, device.name, deviceMap);
+    await configurer.uploadScript('input_handler', code);
+    //console.log(code);
+    console.log(`✅ Input handler script uploaded`);
 
     console.log(`✅ ${device.name} fully configured`);
   } catch (error) {
