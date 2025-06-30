@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import { generateScript } from "./generateScript";
 import devicesData from "../devices.json";
 import actionsData from "../actions.json";
+import { ActionSet } from "./models/actions";
+import { ShellyDevice } from "./models/shelly";
 
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
@@ -21,39 +23,7 @@ if (!GATEWAY || !DNS || !NETMASK || !LAT || !LON || !PASSWORD) {
   throw new Error("Missing required environment variables");
 }
 
-interface Output {
-  index: number;
-  location: string;
-  circuit: string;
-}
-interface Input {
-  index: number;
-  location: string;
-  circuit: string;
-}
-interface ShellyDevice {
-  name: string;
-  ip: string;
-  mac: string;
-  type: "relay" | "dimmer";
-  inputs: Input[];
-  outputs: Output[];
-}
 
-interface ActionSet {
-  device: string;
-  input: number;
-  actions: {
-    trigger: string;
-    when?: string;
-    set: {
-      device: string;
-      output: number;
-      on: boolean;
-      brightness?: number;
-    }[];
-  }[];
-}
 
 async function configureDevice(device: ShellyDevice, allDeviceMap: Record<string, ShellyDevice>) {
   const base = `http://${device.ip}`;
@@ -131,6 +101,13 @@ async function configureDevice(device: ShellyDevice, allDeviceMap: Record<string
     await axios.post(`${base}/rpc/Script.PutCode`, {
       id: created.id,
       code
+    });
+
+    await axios.post(`${base}/rpc/Script.SetConfig`, {
+      id: created.id,
+      config: {
+        enable: true,
+      }
     });
 
     await axios.post(`${base}/rpc/Script.Start`, {

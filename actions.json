@@ -5,95 +5,41 @@
     "actions": [
       {
         "trigger": "single_push",
-        "when": "dark",
         "set": [
           {
             "device": "D1",
             "output": 0,
-            "on": true,
-            "brightness": 80
+            "brightness": "adaptive"
           },
           {
             "device": "D1",
             "output": 1,
-            "on": true,
-            "brightness": 80
+            "brightness": "adaptive"
           },
           {
             "device": "D2",
             "output": 0,
-            "on": true,
-            "brightness": 80
+            "brightness": "adaptive"
           },
           {
             "device": "D2",
             "output": 1,
-            "on": true,
-            "brightness": 80
+            "brightness": "adaptive"
           },
           {
             "device": "D3",
             "output": 0,
-            "on": true,
-            "brightness": 80
+            "brightness": "adaptive"
           },
           {
             "device": "D3",
             "output": 1,
-            "on": true,
-            "brightness": 80
+            "brightness": "adaptive"
           },
           {
             "device": "P1",
             "output": 2,
-            "on": true
-          }
-        ]
-      },
-      {
-        "trigger": "single_push",
-        "when": "light",
-        "set": [
-          {
-            "device": "D1",
-            "output": 0,
-            "on": true,
-            "brightness": 50
-          },
-          {
-            "device": "D1",
-            "output": 1,
-            "on": true,
-            "brightness": 50
-          },
-          {
-            "device": "D2",
-            "output": 0,
-            "on": true,
-            "brightness": 50
-          },
-          {
-            "device": "D2",
-            "output": 1,
-            "on": true,
-            "brightness": 50
-          },
-          {
-            "device": "D3",
-            "output": 0,
-            "on": true,
-            "brightness": 50
-          },
-          {
-            "device": "D3",
-            "output": 1,
-            "on": true,
-            "brightness": 50
-          },
-          {
-            "device": "P1",
-            "output": 2,
-            "on": false
+            "brightness": "on"
           }
         ]
       }
@@ -109,37 +55,37 @@
           {
             "device": "D1",
             "output": 0,
-            "on": false
+            "brightness": "off"
           },
           {
             "device": "D1",
             "output": 1,
-            "on": false
+            "brightness": "off"
           },
           {
             "device": "D2",
             "output": 0,
-            "on": false
+            "brightness": "off"
           },
           {
             "device": "D2",
             "output": 1,
-            "on": false
+            "brightness": "off"
           },
           {
             "device": "D3",
             "output": 0,
-            "on": false
+            "brightness": "off"
           },
           {
             "device": "D3",
             "output": 1,
-            "on": false
+            "brightness": "off"
           },
           {
             "device": "P1",
             "output": 2,
-            "on": false
+            "brightness": "off"
           }
         ]
       }

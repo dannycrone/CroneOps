@@ -1,33 +1,19 @@
+import { InputAction } from "./models/actions";
 
-interface Action {
-  device: string;
-  output: number;
-  on: boolean;
-  brightness?: number;
-}
-interface TriggerBlock {
-  trigger: string;
-  when?: string;
-  set: Action[];
-}
-interface InputAction {
-  device: string;
-  input: number;
-  actions: TriggerBlock[];
-}
 interface DeviceMap {
   [device: string]: { ip: string; type: string };
 }
 
 export function generateScript(inputAction: InputAction, localDevice: string, allDevices: DeviceMap): string {
-  const hourCheck = `
+  const header = `
+let darkStart = 20;  // 8 PM
+let darkEnd = 6;     // 6 AM
 let hour = (new Date()).getHours();
-let isDark = hour < 6 || hour >= 20;`;
+let isDark = hour < darkEnd || hour >= darkStart;
+let adaptiveBrightness = isDark ? 80 : 50;`;
 
   const handlers = inputAction.actions.map(triggerBlock => {
-    const condition = triggerBlock.when
-      ? ` && ${triggerBlock.when === "dark" ? "isDark" : "!isDark"}`
-      : "";
+    const triggerCondition = `event.component === "input:${inputAction.input}" && event.event === "${triggerBlock.trigger}"`;
 
     const localCalls: string[] = [];
     const remoteBatches: { [ip: string]: string[] } = {};
@@ -35,14 +21,22 @@ let isDark = hour < 6 || hour >= 20;`;
     for (const action of triggerBlock.set) {
       const target = allDevices[action.device];
       const method = target.type === "dimmer" ? "Light.Set" : "Switch.Set";
-      const args = [`id: ${action.output}`, `on: ${action.on}`];
-      if (action.brightness !== undefined) args.push(`brightness: ${action.brightness}`);
+      const brightnessSource = action.brightness === "adaptive" ? 
+        "adaptiveBrightness"
+        : typeof action.brightness === "number"
+        ? action.brightness
+        : null;
+      
+
+      const args = [`id: ${action.output}`, `on: ${action.brightness !== "off"}`];
+      if (brightnessSource && method === "Light.Set") args.push(`brightness: ${brightnessSource}`);
 
       if (action.device === localDevice) {
         localCalls.push(`${method}({ ${args.join(", ")} });`);
       } else {
-        const frameArgs = args.map(a => a.replace(": ", ":")).join(", ");
-        const rpcFrame = `{ "id": ${action.output}, "method": "${method}", "params": { ${frameArgs} } }`;
+        const frameArgs = [`id:${action.output}`, `on: ${action.brightness !== "off"}`];
+        if (brightnessSource && method === "Light.Set") frameArgs.push(`brightness:${brightnessSource}`);
+        const rpcFrame = `{ "id": ${action.output}, "method": "${method}", "params": { ${frameArgs.join(", ")} } }`;
         if (!remoteBatches[target.ip]) remoteBatches[target.ip] = [];
         remoteBatches[target.ip].push(rpcFrame);
       }
@@ -52,19 +46,19 @@ let isDark = hour < 6 || hour >= 20;`;
       const payload = `[${frames.join(",")}]`;
       return `Shelly.call("HTTP.POST", {
         url: "http://${ip}/rpc",
-        body: \`${payload}\`,
+        body: ${payload},
         headers: { "Content-Type": "application/json" }
       });`;
     });
 
     return `
-  if (event.component === "input:${inputAction.input}" && event.event === "${triggerBlock.trigger}"${condition}) {
+  if (${triggerCondition}) {
     ${localCalls.concat(remoteCalls).join("\n    ")}
   }`;
   });
 
   return `Shelly.addEventHandler(function (event) {
-${hourCheck}
+${header}
 ${handlers.join("")}
 });`.trim();
 }
