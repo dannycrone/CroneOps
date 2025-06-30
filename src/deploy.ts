@@ -1,7 +1,7 @@
-import axios from "axios";
 import path from "path";
 import dotenv from "dotenv";
-import { generateScript } from "./generateScript";
+import { DeviceConfigurer } from "./utils/deviceConfig";
+import { ScriptGenerator } from "./utils/scriptGenerator";
 import devicesData from "../devices.json";
 import actionsData from "../actions.json";
 import { ActionSet } from "./models/actions";
@@ -9,128 +9,74 @@ import { ShellyDevice } from "./models/shelly";
 
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
+const requiredEnvVars = ['GATEWAY', 'DNS', 'NETMASK', 'LAT', 'LON', 'PASSWORD'] as const;
+const missingVars = requiredEnvVars.filter(v => !process.env[v]);
+
+if (missingVars.length > 0) {
+  throw new Error(`Missing required environment variables: ${missingVars.join(', ')}`);
+}
+
 const devices = devicesData as ShellyDevice[];
 const actions = actionsData as ActionSet[];
 
-const GATEWAY = process.env.GATEWAY;
-const DNS = process.env.DNS;
-const NETMASK = process.env.NETMASK;
-const LAT = process.env.LAT;
-const LON = process.env.LON;
-const PASSWORD = process.env.PASSWORD;
-
-if (!GATEWAY || !DNS || !NETMASK || !LAT || !LON || !PASSWORD) {
-  throw new Error("Missing required environment variables");
-}
-
-
-
 async function configureDevice(device: ShellyDevice, allDeviceMap: Record<string, ShellyDevice>) {
-  const base = `http://${device.ip}`;
   console.log(`\n⚙️ Configuring ${device.name} (${device.ip})...`);
+  
+  try {
+    const configurer = new DeviceConfigurer(device, process.env.PASSWORD!);
+    
+    await configurer.configureBasicSettings(
+      parseFloat(process.env.LAT!),
+      parseFloat(process.env.LON!)
+    );
+    console.log(`✅ Basic settings configured`);
 
-  await axios.post(`${base}/rpc/Sys.SetConfig`, {
-    config: {
-      device: {
-        name: device.name,
-      },
-      location: {
-        tz: "Europe/London",
-        lat: parseFloat(LAT!),
-        lon: parseFloat(LON!)
-      },
+    await configurer.configureWiFi();
+    console.log(`✅ WiFi configured`);
+
+    await configurer.configureInputs();
+    console.log(`✅ Inputs configured`);
+
+    await configurer.configureOutputs();
+    console.log(`✅ Outputs configured`);
+
+    await configurer.clearExistingScripts();
+    console.log(`✅ Existing scripts cleared`);
+
+    const relevantActions = actions.filter(a => a.device === device.name);
+    const deviceMap: Record<string, { ip: string; type: string }> = {};
+    for (const d of devices) {
+      deviceMap[d.name] = { ip: d.ip, type: d.type };
     }
-  });
-  console.log(`\n⚙️ Configured ${device.name} (${device.ip})...`);
-  await axios.post(`${base}/rpc/WiFi.SetConfig`, {
-    config: {
-      ap: {
-        ssid: device.name,
-        pass: PASSWORD,
-        is_open: false,
-        enable: true,
-      },
-      sta: {
-        enable: false,
-      },
-      sta1: {
-        enable: false,
-      },
+
+    for (const inputAction of relevantActions) {
+      const code = ScriptGenerator.generate(inputAction, device.name, deviceMap);
+      await configurer.uploadScript(`input_${inputAction.input}`, code);
+      console.log(`✅ Script for input ${inputAction.input} uploaded`);
     }
-  });
-  console.log(`\n⚙️ Configured ${device.name} WiFi...`);
 
-  for (let i = 0; i < 4; i++) {
-    await axios.post(`${base}/rpc/Input.SetConfig`, {
-      id: i,
-      config: { type: "button" }
-    });
+    console.log(`✅ ${device.name} fully configured`);
+  } catch (error) {
+    console.error(`❌ Error configuring ${device.name}:`, error);
+    throw error;
   }
-
-  const outputCount = device.type === "dimmer" ? 2 : 4;
-  const endpoint = device.type === "dimmer" ? "Light.SetConfig" : "Switch.SetConfig";
-  for (let i = 0; i < outputCount; i++) {
-    await axios.post(`${base}/rpc/${endpoint}`, {
-      id: i,
-      config: {
-        auto_on: false,
-        auto_off: false,
-        initial_state: "restore_last",
-        in_mode: "detached"
-      }
-    });
-  }
-
-  const { data: existing } = await axios.get(`${base}/rpc/Script.List`);
-  await Promise.all(existing.scripts.map((s: any) =>
-    axios.post(`${base}/rpc/Script.Delete`, { id: s.id })
-  ));
-
-  const relevantActions = actions.filter((a: ActionSet) => a.device === device.name);
-  const deviceMap: Record<string, { ip: string; type: string }> = {};
-  for (const d of devices as ShellyDevice[]) {
-    deviceMap[d.name] = { ip: d.ip, type: d.type };
-  }
-
-  for (const inputAction of relevantActions) {
-    const code = generateScript(inputAction, device.name, deviceMap);
-    const { data: created } = await axios.post(`${base}/rpc/Script.Create`, {
-      name: `input_${inputAction.input}`
-    });
-
-    await axios.post(`${base}/rpc/Script.PutCode`, {
-      id: created.id,
-      code
-    });
-
-    await axios.post(`${base}/rpc/Script.SetConfig`, {
-      id: created.id,
-      config: {
-        enable: true,
-      }
-    });
-
-    await axios.post(`${base}/rpc/Script.Start`, {
-      id: created.id
-    });
-    console.log(code);
-
-    console.log(`✅ Script for input ${inputAction.input} uploaded.`);
-  }
-
-  console.log(`✅ ${device.name} fully configured.`);
 }
 
 (async () => {
-  const deviceList: ShellyDevice[] = devices;
-  const deviceMap: Record<string, ShellyDevice> = {};
-  for (const d of deviceList) {
-    deviceMap[d.name] = d;
-  }
+  try {
+    const deviceMap: Record<string, ShellyDevice> = Object.fromEntries(
+      devices.map(d => [d.name, d])
+    );
 
-  for (const device of deviceList) {
-    if (device.name === "D1") {
-      await configureDevice(device, deviceMap);
+    for (const device of devices) {
+      if (device.name === "D1" || device.name === "D2") {
+        await configureDevice(device, deviceMap);
+      }
     }
+    
+    console.log('\n✅ Deployment completed successfully');
+  } catch (error) {
+    console.error('\n❌ Deployment failed:', error);
+    process.exit(1);
   }
 })();
