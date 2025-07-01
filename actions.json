@@ -38,7 +38,47 @@
           },
           {
             "device": "P1",
-            "output": 2,
+            "output": 1,
+            "brightness": "on"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D1",
+            "output": 0,
+            "brightness": 100
+          },
+          {
+            "device": "D1",
+            "output": 1,
+            "brightness": 100
+          },
+          {
+            "device": "D2",
+            "output": 0,
+            "brightness": 100
+          },
+          {
+            "device": "D2",
+            "output": 1,
+            "brightness": 100
+          },
+          {
+            "device": "D3",
+            "output": 0,
+            "brightness": 100
+          },
+          {
+            "device": "D3",
+            "output": 1,
+            "brightness": 100
+          },
+          {
+            "device": "P1",
+            "output": 1,
             "brightness": "on"
           }
         ]
@@ -84,7 +124,7 @@
           },
           {
             "device": "P1",
-            "output": 2,
+            "output": 1,
             "brightness": "off"
           }
         ]
