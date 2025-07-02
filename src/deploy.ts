@@ -1,5 +1,6 @@
 import path from "path";
 import dotenv from "dotenv";
+import readline from "readline";
 import { DeviceConfigurer } from "./utils/deviceConfig";
 import { ScriptGenerator } from "./utils/scriptGenerator";
 import devicesData from "../devices.json";
@@ -62,14 +63,52 @@ async function configureDevice(device: ShellyDevice, allDeviceMap: Record<string
   }
 }
 
+async function promptForDevice(): Promise<string[]> {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  return new Promise((resolve) => {
+    rl.question('Enter device names to configure (D1, D2, P1) or "all" [D1] (comma-separated for multiple): ', (answer) => {
+      rl.close();
+      const input = answer.trim() || 'D1';  // Default to D1 if empty
+      
+      if (input.toUpperCase() === 'ALL') {
+        resolve(['ALL']);
+      } else {
+        // Split by comma and clean up each device name
+        const deviceNames = input.split(',')
+          .map(name => name.trim().toUpperCase())
+          .filter(name => name); // Remove empty entries
+        resolve(deviceNames);
+      }
+    });
+  });
+}
+
 (async () => {
   try {
     const deviceMap: Record<string, ShellyDevice> = Object.fromEntries(
       devices.map(d => [d.name, d])
     );
 
-    for (const device of devices) {
-      if (device.name === "D1" || device.name === "D2") {
+    const targetDevices = await promptForDevice();
+    
+    if (targetDevices[0] === 'ALL') {
+      for (const device of devices) {
+        await configureDevice(device, deviceMap);
+      }
+    } else {
+      // Validate all device names first
+      const invalidDevices = targetDevices.filter(name => !devices.find(d => d.name === name));
+      if (invalidDevices.length > 0) {
+        throw new Error(`Invalid device names: ${invalidDevices.join(', ')}`);
+      }
+
+      // Configure each specified device
+      for (const deviceName of targetDevices) {
+        const device = devices.find(d => d.name === deviceName)!;
         await configureDevice(device, deviceMap);
       }
     }

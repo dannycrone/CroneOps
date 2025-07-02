@@ -1,38 +1,15 @@
 import { InputAction } from '../models/actions';
 import { TIME_CONFIG, DEVICE_TYPES } from '../config/constants';
+import {readFileSync} from 'fs';
 
 interface DeviceMap {
   [device: string]: { ip: string; type: string };
 }
 
 export class ScriptGenerator {
-  private static generateHelperFunctions(): string {
-    return `
-function getAdaptiveBrightness() {
-  let hour = (new Date()).getHours();
-  return (hour < ${TIME_CONFIG.DARK_END} || hour >= ${TIME_CONFIG.DARK_START}) ? 80 : 50;
-}
-
-function handleCallback(result, error_code, error_message) {
-  if (error_code) {
-    console.log('Error calling RPC: [' + error_code + '] ' + error_message);
-  }
-}
-
-function executeRpcSequence(urls) {
-  let index = 0;
-  function executeNext() {
-    if (index < urls.length) {
-      let url = urls[index];
-      // Replace placeholder with actual function call
-      url = url.replace("\${getAdaptiveBrightness()}", getAdaptiveBrightness());
-      Shelly.call("HTTP.GET", { url: url, timeout: 2 }, handleCallback);
-      index++;
-      Timer.set(200, executeNext);
-    }
-  }
-  executeNext();
-}`.trim();
+  private static getTemplate(): string {
+    const template = readFileSync('src/templates/script.js', 'utf8');
+    return template.replace(/6 \|\| hour >= 20/g, `${TIME_CONFIG.DARK_END} || hour >= ${TIME_CONFIG.DARK_START}`);
   }
 
   private static generateActionCall(
@@ -105,22 +82,16 @@ function executeRpcSequence(urls) {
         }
 
         return {
-          condition: `event.component === "input:${inputAction.input}" && event.event === "${triggerBlock.trigger}"`,
+          condition: `event.info.component === "input:${inputAction.input}" && event.info.event === "${triggerBlock.trigger}"`,
           actions: calls
         };
       })
     );
 
-    const combinedHandlers = handlers.map(handler => `
-  if (${handler.condition}) {
-    executeRpcSequence([
-${handler.actions.map(url => '      ' + url).join(',\n')}
-    ]);
-  }`).join("");
+    const combinedHandlers = handlers.map(handler => `  if (${handler.condition}) {
+${handler.actions.map(url => `    httpGet(${url});`).join('\n')}
+  }`).join("\n");
 
-    return `${this.generateHelperFunctions()}
-
-Shelly.addEventHandler(function(event) {${combinedHandlers}
-});`.trim();
+    return this.getTemplate().replace('// EVENT_HANDLERS', combinedHandlers);
   }
 }
