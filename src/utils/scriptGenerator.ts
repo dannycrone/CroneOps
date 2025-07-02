@@ -13,12 +13,25 @@ function getAdaptiveBrightness() {
   return (hour < ${TIME_CONFIG.DARK_END} || hour >= ${TIME_CONFIG.DARK_START}) ? 80 : 50;
 }
 
-function rpc(method, params, ip) {
-  let query = Object.entries(params).map(([k,v]) => k + "=" + v).join("&");
-  Shelly.call("HTTP.GET", {
-    url: \`http://\${ip}/rpc/\${method}?\${query}\`,
-    timeout: 2
-  });
+function handleCallback(result, error_code, error_message) {
+  if (error_code) {
+    console.log('Error calling RPC: [' + error_code + '] ' + error_message);
+  }
+}
+
+function executeRpcSequence(urls) {
+  let index = 0;
+  function executeNext() {
+    if (index < urls.length) {
+      let url = urls[index];
+      // Replace placeholder with actual function call
+      url = url.replace("\${getAdaptiveBrightness()}", getAdaptiveBrightness());
+      Shelly.call("HTTP.GET", { url: url, timeout: 2 }, handleCallback);
+      index++;
+      Timer.set(200, executeNext);
+    }
+  }
+  executeNext();
 }`.trim();
   }
 
@@ -30,7 +43,7 @@ function rpc(method, params, ip) {
   ): string {
     const isOn = action.brightness !== "off";
     const brightnessValue = action.brightness === "adaptive"
-      ? "getAdaptiveBrightness()"
+      ? "\${getAdaptiveBrightness()}"  // This will be replaced at runtime
       : typeof action.brightness === "number"
       ? action.brightness
       : null;
@@ -41,24 +54,25 @@ function rpc(method, params, ip) {
     if (target.type === DEVICE_TYPES.DIMMER) {
       if (allOutputs) {
         method = "Light.SetAll";
-        params.push(`on:${isOn}`);
+        params.push(`on=${isOn}`);
         if (brightnessValue) {
-          params.push(`brightness:${brightnessValue}`);
+          params.push(`brightness=${brightnessValue}`);
         }
       } else {
         method = "Light.Set";
-        params.push(`id:${action.output}`, `on:${isOn}`);
+        params.push(`id=${action.output}`, `on=${isOn}`);
         if (brightnessValue) {
-          params.push(`brightness:${brightnessValue}`);
+          params.push(`brightness=${brightnessValue}`);
         }
       }
     } else {
       method = "Switch.Set";
-      params.push(`id:${action.output}`, `on:${isOn}`);
+      params.push(`id=${action.output}`, `on=${isOn}`);
     }
 
     const ip = isLocal ? "localhost" : target.ip;
-    return `rpc("${method}", { ${params.join(", ")} }, "${ip}");`;
+    const query = params.join('&');
+    return `"http://${ip}/rpc/${method}?${query}"`;
   }
 
   static generate(inputActions: InputAction[], localDevice: string, allDevices: DeviceMap): string {
@@ -99,7 +113,9 @@ function rpc(method, params, ip) {
 
     const combinedHandlers = handlers.map(handler => `
   if (${handler.condition}) {
-    ${handler.actions.join("\n    ")}
+    executeRpcSequence([
+${handler.actions.map(url => '      ' + url).join(',\n')}
+    ]);
   }`).join("");
 
     return `${this.generateHelperFunctions()}
