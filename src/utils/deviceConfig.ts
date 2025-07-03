@@ -1,6 +1,9 @@
 import axios from 'axios';
+import { minify } from 'terser';
 import { API_ENDPOINTS, DEFAULT_CONFIG, DEVICE_TYPES } from '../config/constants';
 import { ShellyDevice } from '../models/shelly';
+
+type UploadMethod = 'compress' | 'chunk';
 
 export class DeviceConfigurer {
   private readonly baseUrl: string;
@@ -69,15 +72,81 @@ export class DeviceConfigurer {
     );
   }
 
-  async uploadScript(name: string, code: string): Promise<void> {
+  private async minifyCode(code: string): Promise<string> {
+    try {
+      const result = await minify(code, {
+        compress: {
+          dead_code: true,
+          drop_console: false,
+          drop_debugger: true,
+          keep_fnames: true,
+          keep_classnames: true
+        },
+        mangle: {
+          keep_fnames: true,
+          keep_classnames: true
+        }
+      });
+      return result.code || code;
+    } catch (error) {
+      console.warn('Minification failed, using original code:', error);
+      return code;
+    }
+  }
+
+  private chunkString(input: string, chunkSizeBytes: number = 1024): string[] {
+    const chunks: string[] = [];
+    let offset = 0;
+
+    while (offset < input.length) {
+      chunks.push(input.slice(offset, offset + chunkSizeBytes));
+      offset += chunkSizeBytes;
+    }
+
+    return chunks;
+  }
+
+  private async uploadChunked(id: number, code: string, chunkSizeBytes: number = 1024): Promise<void> {
+    const chunks = this.chunkString(code, chunkSizeBytes);
+    
+    for (let i = 0; i < chunks.length; i++) {
+      const isFirst = i === 0;
+      const chunk = chunks[i];
+      
+      await axios.post(`${this.baseUrl}/${API_ENDPOINTS.SCRIPT_PUT_CODE}`, {
+        id,
+        code: chunk,
+        append: !isFirst
+      });
+      
+      console.log(`Uploaded chunk ${i + 1}/${chunks.length} (${chunk.length } bytes)`);
+    }
+  }
+
+  async uploadScript(name: string, code: string, method: UploadMethod = 'compress'): Promise<void> {
     const { data: created } = await axios.post(`${this.baseUrl}/${API_ENDPOINTS.SCRIPT_CREATE}`, {
       name
     });
 
-    await axios.post(`${this.baseUrl}/${API_ENDPOINTS.SCRIPT_PUT_CODE}`, {
-      id: created.id,
-      code
-    });
+    const minifiedCode = await this.minifyCode(code);
+    console.log(`Original size: ${code.length} bytes`);
+    console.log(`Minified size: ${minifiedCode.length} bytes`);
+    console.log(`Reduction: ${((code.length - minifiedCode.length) / code.length * 100).toFixed(1)}%`);
+
+    if (method === 'compress') {
+      const minifiedCode = await this.minifyCode(code);
+      console.log(`Original size: ${code.length} bytes`);
+      console.log(`Minified size: ${minifiedCode.length} bytes`);
+      console.log(`Reduction: ${((code.length - minifiedCode.length) / code.length * 100).toFixed(1)}%`);
+
+      await axios.post(`${this.baseUrl}/${API_ENDPOINTS.SCRIPT_PUT_CODE}`, {
+        id: created.id,
+        code: minifiedCode
+      });
+    } else {
+      console.log(`Uploading in chunks (${code.length} bytes total)`);
+      await this.uploadChunked(created.id, code);
+    }
 
     await axios.post(`${this.baseUrl}/${API_ENDPOINTS.SCRIPT_SET_CONFIG}`, {
       id: created.id,

@@ -17,6 +17,8 @@
   },
   "devDependencies": {
     "@types/node": "^24.0.3",
+    "@types/terser": "^3.8.1",
+    "terser": "^5.43.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }

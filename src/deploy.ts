@@ -20,7 +20,11 @@ if (missingVars.length > 0) {
 const devices = devicesData as ShellyDevice[];
 const actions = actionsData as ActionSet[];
 
-async function configureDevice(device: ShellyDevice, allDeviceMap: Record<string, ShellyDevice>) {
+async function configureDevice(
+  device: ShellyDevice,
+  allDeviceMap: Record<string, ShellyDevice>,
+  uploadMethod: UploadMethod
+) {
   console.log(`\n⚙️ Configuring ${device.name} (${device.ip})...`);
   
   try {
@@ -52,7 +56,7 @@ async function configureDevice(device: ShellyDevice, allDeviceMap: Record<string
 
     // Generate a single script for all inputs on this device
     const code = ScriptGenerator.generate(relevantActions, device.name, deviceMap);
-    await configurer.uploadScript('input_handler', code);
+    await configurer.uploadScript('input_handler', code, uploadMethod);
     //console.log(code);
     console.log(`✅ Input handler script uploaded`);
 
@@ -61,6 +65,39 @@ async function configureDevice(device: ShellyDevice, allDeviceMap: Record<string
     console.error(`❌ Error configuring ${device.name}:`, error);
     throw error;
   }
+}
+
+type Mode = 'configure' | 'generate';
+type UploadMethod = 'compress' | 'chunk';
+
+async function promptForMode(): Promise<Mode> {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  return new Promise((resolve) => {
+    rl.question('Choose mode (configure/generate) [configure]: ', (answer) => {
+      rl.close();
+      const mode = answer.trim().toLowerCase() || 'configure';
+      resolve(mode as Mode);
+    });
+  });
+}
+
+async function promptForUploadMethod(): Promise<UploadMethod> {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  return new Promise((resolve) => {
+    rl.question('Choose upload method (compress/chunk) [compress]: ', (answer) => {
+      rl.close();
+      const method = answer.trim().toLowerCase() || 'compress';
+      resolve(method as UploadMethod);
+    });
+  });
 }
 
 async function promptForDevice(): Promise<string[]> {
@@ -87,29 +124,41 @@ async function promptForDevice(): Promise<string[]> {
   });
 }
 
+async function generateActions() {
+  console.log('Generating actions...');
+  // TODO: Implement action generation
+}
+
 (async () => {
   try {
     const deviceMap: Record<string, ShellyDevice> = Object.fromEntries(
       devices.map(d => [d.name, d])
     );
 
-    const targetDevices = await promptForDevice();
-    
-    if (targetDevices[0] === 'ALL') {
-      for (const device of devices) {
-        await configureDevice(device, deviceMap);
-      }
-    } else {
-      // Validate all device names first
-      const invalidDevices = targetDevices.filter(name => !devices.find(d => d.name === name));
-      if (invalidDevices.length > 0) {
-        throw new Error(`Invalid device names: ${invalidDevices.join(', ')}`);
-      }
+    const mode = await promptForMode();
 
-      // Configure each specified device
-      for (const deviceName of targetDevices) {
-        const device = devices.find(d => d.name === deviceName)!;
-        await configureDevice(device, deviceMap);
+    if (mode === 'generate') {
+      await generateActions();
+    } else {
+      const uploadMethod = await promptForUploadMethod();
+      const targetDevices = await promptForDevice();
+      
+      if (targetDevices[0] === 'ALL') {
+        for (const device of devices) {
+          await configureDevice(device, deviceMap, uploadMethod);
+        }
+      } else {
+        // Validate all device names first
+        const invalidDevices = targetDevices.filter(name => !devices.find(d => d.name === name));
+        if (invalidDevices.length > 0) {
+          throw new Error(`Invalid device names: ${invalidDevices.join(', ')}`);
+        }
+
+        // Configure each specified device
+        for (const deviceName of targetDevices) {
+          const device = devices.find(d => d.name === deviceName)!;
+          await configureDevice(device, deviceMap, uploadMethod);
+        }
       }
     }
     
