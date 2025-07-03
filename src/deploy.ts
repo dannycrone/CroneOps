@@ -1,8 +1,10 @@
 import path from "path";
 import dotenv from "dotenv";
 import readline from "readline";
+import fs from "fs";
 import { DeviceConfigurer } from "./utils/deviceConfig";
 import { ScriptGenerator } from "./utils/scriptGenerator";
+import { ExcelParser } from "./utils/excelParser";
 import devicesData from "../devices.json";
 import actionsData from "../actions.json";
 import { ActionSet } from "./models/actions";
@@ -125,8 +127,16 @@ async function promptForDevice(): Promise<string[]> {
 }
 
 async function generateActions() {
-  console.log('Generating actions...');
-  // TODO: Implement action generation
+  console.log('Generating actions from Excel...');
+  try {
+    const actions = ExcelParser.readActionsWorksheet();
+    const outputPath = path.resolve(__dirname, '../actions.json');
+    await fs.promises.writeFile(outputPath, JSON.stringify(actions, null, 2));
+    console.log(`✅ Actions generated and saved to actionsnew.json`);
+  } catch (error) {
+    console.error('❌ Error generating actions:', error);
+    throw error;
+  }
 }
 
 (async () => {
