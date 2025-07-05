@@ -1,14 +1,13 @@
 import * as XLSX from 'xlsx';
-import { ActionSet, Action } from '../models/actions';
+import { ActionSet, Action, BrightnessType } from '../models/actions';
 import path from 'path';
 
-type BrightnessType = "adaptive" | "on" | "off" | number;
 
 function validateBrightness(value: any): BrightnessType {
-  if (typeof value === 'number' || ["adaptive", "on", "off"].includes(value)) {
+  if (typeof value === 'number' || ["adaptive", "on", "off", "nightonlylow", 'lowLight', 'midLight', 'highLight', 'maxLight'].includes(value)) {
     return value as BrightnessType;
   }
-  throw new Error(`Invalid brightness value: ${value}. Must be "adaptive", "on", "off", or a number.`);
+  throw new Error(`Invalid brightness value: ${value}. Must be "adaptive", "on", "off", "nightonlylow", 'lowLight', 'midLight', 'highLight', 'maxLight'or a number.`);
 }
 
 export class ExcelParser {

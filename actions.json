@@ -44,32 +44,32 @@
           {
             "device": "D1",
             "output": 0,
-            "brightness": 100
+            "brightness": "highLight"
           },
           {
             "device": "D1",
             "output": 1,
-            "brightness": 100
+            "brightness": "highLight"
           },
           {
             "device": "D2",
             "output": 0,
-            "brightness": 100
+            "brightness": "highLight"
           },
           {
             "device": "D2",
             "output": 1,
-            "brightness": 100
+            "brightness": "highLight"
           },
           {
             "device": "D3",
             "output": 0,
-            "brightness": 100
+            "brightness": "highLight"
           },
           {
             "device": "D3",
             "output": 1,
-            "brightness": 100
+            "brightness": "highLight"
           },
           {
             "device": "P1",
@@ -307,17 +307,17 @@
           {
             "device": "D2",
             "output": 0,
-            "brightness": 100
+            "brightness": "highLight"
           },
           {
             "device": "D3",
             "output": 0,
-            "brightness": 100
+            "brightness": "highLight"
           },
           {
             "device": "D3",
             "output": 1,
-            "brightness": 100
+            "brightness": "highLight"
           }
         ]
       }
@@ -379,17 +379,17 @@
           {
             "device": "D15",
             "output": 0,
-            "brightness": 100
+            "brightness": "highLight"
           },
           {
             "device": "D15",
             "output": 1,
-            "brightness": 100
+            "brightness": "highLight"
           },
           {
             "device": "D16",
             "output": 0,
-            "brightness": 100
+            "brightness": "highLight"
           }
         ]
       }
@@ -451,6 +451,2490 @@
           {
             "device": "D2",
             "output": 1,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D15",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D16",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D17",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D17",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D18",
+            "output": 0,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D16",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D17",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D17",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D18",
+            "output": 0,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D15",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D16",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D17",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D17",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D18",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D15",
+    "input": 2,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D15",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D15",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D16",
+            "output": 0,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D15",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D15",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D16",
+            "output": 0,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D15",
+    "input": 3,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D15",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D15",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D16",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "P2",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "toggle_on",
+        "set": [
+          {
+            "device": "D17",
+            "output": 1,
+            "brightness": "nightonlylow"
+          },
+          {
+            "device": "D18",
+            "output": 0,
+            "brightness": "nightonlylow"
+          }
+        ]
+      },
+      {
+        "trigger": "toggle_off",
+        "set": [
+          {
+            "device": "D17",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D18",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D16",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D18",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D19",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D19",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D20",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D20",
+            "output": 1,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D18",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D19",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D19",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D20",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D20",
+            "output": 1,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D16",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D18",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D19",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D19",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D20",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D20",
+            "output": 1,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D16",
+    "input": 2,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D15",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D15",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D16",
+            "output": 0,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D15",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D15",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D16",
+            "output": 0,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D16",
+    "input": 3,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D15",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D15",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D16",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D19",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D15",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D15",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D16",
+            "output": 0,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D15",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D15",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D16",
+            "output": 0,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D19",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D15",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D15",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D16",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D19",
+    "input": 2,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D18",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D19",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D19",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D20",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D20",
+            "output": 1,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "double_push",
+        "set": [
+          {
+            "device": "D21",
+            "output": 0,
+            "brightness": "on"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D18",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D19",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D19",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D20",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D20",
+            "output": 1,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D19",
+    "input": 3,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D18",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D19",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D19",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D20",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D20",
+            "output": 1,
+            "brightness": "off"
+          }
+        ]
+      },
+      {
+        "trigger": "double_push",
+        "set": [
+          {
+            "device": "D21",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "P3",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "toggle_on",
+        "set": [
+          {
+            "device": "P1",
+            "output": 2,
+            "brightness": "nightonlylow"
+          }
+        ]
+      },
+      {
+        "trigger": "toggle_off",
+        "set": [
+          {
+            "device": "P1",
+            "output": 2,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D21",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D21",
+            "output": 1,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D21",
+            "output": 1,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D21",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D21",
+            "output": 1,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D21",
+    "input": 2,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D22",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D23",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D23",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D24",
+            "output": 0,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D22",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D23",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D23",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D24",
+            "output": 0,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D21",
+    "input": 3,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D22",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D23",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D23",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D24",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "P2",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "toggle_on",
+        "set": [
+          {
+            "device": "D23",
+            "output": 0,
+            "brightness": "nightonlylow"
+          },
+          {
+            "device": "D23",
+            "output": 1,
+            "brightness": "nightonlylow"
+          }
+        ]
+      },
+      {
+        "trigger": "toggle_off",
+        "set": [
+          {
+            "device": "D23",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D23",
+            "output": 1,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D25",
+    "input": 2,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D24",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D25",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D25",
+            "output": 1,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D24",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D25",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D25",
+            "output": 1,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D25",
+    "input": 3,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D24",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D25",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D25",
+            "output": 1,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D25",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D26",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "P5",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "P5",
+            "output": 1,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D26",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "P5",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "P5",
+            "output": 1,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D25",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D26",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "P5",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "P5",
+            "output": 1,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "P2",
+    "input": 2,
+    "actions": [
+      {
+        "trigger": "toggle_on",
+        "set": [
+          {
+            "device": "D26",
+            "output": 0,
+            "brightness": "nightonlylow"
+          },
+          {
+            "device": "P5",
+            "output": 0,
+            "brightness": "nightonlylow"
+          },
+          {
+            "device": "P5",
+            "output": 1,
+            "brightness": "nightonlylow"
+          }
+        ]
+      },
+      {
+        "trigger": "toggle_off",
+        "set": [
+          {
+            "device": "D26",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "P5",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "P5",
+            "output": 1,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D26",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D27",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D29",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D27",
+            "output": 1,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D27",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D29",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D27",
+            "output": 1,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D26",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D27",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D29",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D27",
+            "output": 1,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D27",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D27",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D29",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D27",
+            "output": 1,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D27",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D29",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D27",
+            "output": 1,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D27",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D27",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D29",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D27",
+            "output": 1,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D27",
+    "input": 2,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D28",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "P6",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "P6",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "P6",
+            "output": 2,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D28",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "P6",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "P6",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "P6",
+            "output": 2,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D27",
+    "input": 3,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D28",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "P6",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "P6",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "P6",
+            "output": 2,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "P2",
+    "input": 3,
+    "actions": [
+      {
+        "trigger": "toggle_on",
+        "set": [
+          {
+            "device": "D28",
+            "output": 0,
+            "brightness": "nightonlylow"
+          },
+          {
+            "device": "P6",
+            "output": 0,
+            "brightness": "nightonlylow"
+          },
+          {
+            "device": "P6",
+            "output": 1,
+            "brightness": "nightonlylow"
+          },
+          {
+            "device": "P6",
+            "output": 2,
+            "brightness": "nightonlylow"
+          }
+        ]
+      },
+      {
+        "trigger": "toggle_off",
+        "set": [
+          {
+            "device": "D28",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "P6",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "P6",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "P6",
+            "output": 2,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D4",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D4",
+            "output": 0,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D4",
+            "output": 0,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D4",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D4",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D5",
+    "input": 2,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D5",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D5",
+            "output": 1,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "double_push",
+        "set": [
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "on"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D5",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D5",
+            "output": 1,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D5",
+    "input": 3,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D5",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D5",
+            "output": 1,
+            "brightness": "off"
+          }
+        ]
+      },
+      {
+        "trigger": "double_push",
+        "set": [
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D5",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D5",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D7",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D7",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D9",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D9",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D10",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D5",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D5",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D5",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D7",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D7",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D8",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D8",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D9",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D10",
+            "output": 0,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "double_push",
+        "set": [
+          {
+            "device": "D5",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D5",
+            "output": 1,
+            "brightness": "midLight"
+          },
+          {
+            "device": "D7",
+            "output": 0,
+            "brightness": "lowLight"
+          },
+          {
+            "device": "D7",
+            "output": 1,
+            "brightness": "lowLight"
+          },
+          {
+            "device": "D8",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 1,
+            "brightness": "lowLight"
+          },
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "lowLight"
+          },
+          {
+            "device": "D9",
+            "output": 1,
+            "brightness": "lowLight"
+          },
+          {
+            "device": "D10",
+            "output": 0,
+            "brightness": "lowLight"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D5",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D5",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D7",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D7",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D8",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D8",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D9",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D10",
+            "output": 0,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D5",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D7",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D7",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D9",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D10",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D5",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D5",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D7",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D7",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D9",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D9",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D10",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D7",
+    "input": 2,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D5",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D5",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D7",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D7",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D8",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D8",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D9",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D10",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D10",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D11",
+            "output": 0,
+            "brightness": "highLight"
+          }
+        ]
+      },
+      {
+        "trigger": "double_push",
+        "set": [
+          {
+            "device": "D5",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D5",
+            "output": 1,
+            "brightness": "midLight"
+          },
+          {
+            "device": "D7",
+            "output": 0,
+            "brightness": "lowLight"
+          },
+          {
+            "device": "D7",
+            "output": 1,
+            "brightness": "lowLight"
+          },
+          {
+            "device": "D8",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 1,
+            "brightness": "lowLight"
+          },
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "lowLight"
+          },
+          {
+            "device": "D9",
+            "output": 1,
+            "brightness": "lowLight"
+          },
+          {
+            "device": "D10",
+            "output": 0,
+            "brightness": "lowLight"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D5",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D5",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D7",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D7",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D8",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D8",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D9",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D10",
+            "output": 0,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D7",
+    "input": 3,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D7",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D7",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D9",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D10",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D5",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D5",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D7",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D7",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D9",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D9",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D10",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D7",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D7",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D7",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D8",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D8",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D9",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D9",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D10",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D10",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D11",
+            "output": 0,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "double_push",
+        "set": [
+          {
+            "device": "D7",
+            "output": 0,
+            "brightness": "lowLight"
+          },
+          {
+            "device": "D7",
+            "output": 1,
+            "brightness": "lowLight"
+          },
+          {
+            "device": "D8",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 1,
+            "brightness": "lowLight"
+          },
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "lowLight"
+          },
+          {
+            "device": "D9",
+            "output": 1,
+            "brightness": "lowLight"
+          },
+          {
+            "device": "D10",
+            "output": 0,
+            "brightness": "lowLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D7",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D7",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D7",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D9",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D10",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D10",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D11",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D5",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D5",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D7",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D7",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D8",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D9",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "P4",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "D9",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D10",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D8",
+    "input": 2,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D13",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "P4",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "P4",
+            "output": 2,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D13",
+            "output": 1,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D13",
+            "output": 0,
+            "brightness": "highLight"
+          },
+          {
+            "device": "P4",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "P4",
+            "output": 2,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D13",
+            "output": 1,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D8",
+    "input": 3,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D13",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "P4",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "P4",
+            "output": 2,
+            "brightness": "off"
+          },
+          {
+            "device": "D13",
+            "output": 1,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D8",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D8",
+            "output": 0,
+            "brightness": "adaptive"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D8",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D14",
+            "output": 0,
+            "brightness": "adaptive"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "P1",
+    "input": 3,
+    "actions": [
+      {
+        "trigger": "toggle_on",
+        "set": [
+          {
+            "device": "D13",
+            "output": 0,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "P4",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "P4",
+            "output": 2,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D13",
+            "output": 1,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "toggle_off",
+        "set": [
+          {
+            "device": "D13",
+            "output": 0,
+            "brightness": "off"
+          },
+          {
+            "device": "P4",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "P4",
+            "output": 2,
+            "brightness": "off"
+          },
+          {
+            "device": "D13",
+            "output": 1,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D14",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D14",
+            "output": 0,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D14",
+            "output": 0,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D14",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D14",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "P1",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "toggle_on",
+        "set": [
+          {
+            "device": "D11",
+            "output": 1,
+            "brightness": "highLight"
+          }
+        ]
+      },
+      {
+        "trigger": "toggle_off",
+        "set": [
+          {
+            "device": "D11",
+            "output": 1,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D12",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D12",
+            "output": 0,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D12",
+            "output": 0,
+            "brightness": "highLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D12",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D12",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D12",
+    "input": 2,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D12",
+            "output": 1,
+            "brightness": "maxLight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D12",
+    "input": 3,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D12",
+            "output": 1,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "P1",
+    "input": 2,
+    "actions": [
+      {
+        "trigger": "toggle_on",
+        "set": [
+          {
+            "device": "D12",
+            "output": 0,
+            "brightness": "adaptive"
+          }
+        ]
+      },
+      {
+        "trigger": "toggle_off",
+        "set": [
+          {
+            "device": "D12",
+            "output": 0,
             "brightness": "off"
           }
         ]
