@@ -300,6 +300,26 @@
             "brightness": "adaptive"
           }
         ]
+      },
+      {
+        "trigger": "long_push",
+        "set": [
+          {
+            "device": "D2",
+            "output": 0,
+            "brightness": 100
+          },
+          {
+            "device": "D3",
+            "output": 0,
+            "brightness": 100
+          },
+          {
+            "device": "D3",
+            "output": 1,
+            "brightness": 100
+          }
+        ]
       }
     ]
   },
@@ -412,6 +432,11 @@
             "device": "D2",
             "output": 0,
             "brightness": "adaptive"
+          },
+          {
+            "device": "D2",
+            "output": 1,
+            "brightness": "adaptive"
           }
         ]
       },
@@ -421,7 +446,12 @@
           {
             "device": "D2",
             "output": 0,
-            "brightness": "adaptive"
+            "brightness": "off"
+          },
+          {
+            "device": "D2",
+            "output": 1,
+            "brightness": "off"
           }
         ]
       }

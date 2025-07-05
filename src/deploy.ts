@@ -51,13 +51,9 @@ async function configureDevice(
     console.log(`✅ Existing scripts cleared`);
 
     const relevantActions = actions.filter(a => a.device === device.name);
-    const deviceMap: Record<string, { ip: string; type: string }> = {};
-    for (const d of devices) {
-      deviceMap[d.name] = { ip: d.ip, type: d.type };
-    }
 
     // Generate a single script for all inputs on this device
-    const code = ScriptGenerator.generate(relevantActions, device.name, deviceMap);
+    const code = ScriptGenerator.generate(relevantActions, device.name, allDeviceMap);
     await configurer.uploadScript('input_handler', code, uploadMethod);
     //console.log(code);
     console.log(`✅ Input handler script uploaded`);
@@ -65,7 +61,7 @@ async function configureDevice(
     console.log(`✅ ${device.name} fully configured`);
   } catch (error) {
     console.error(`❌ Error configuring ${device.name}:`, error);
-    throw error;
+    //throw error;
   }
 }
 
@@ -94,9 +90,9 @@ async function promptForUploadMethod(): Promise<UploadMethod> {
   });
 
   return new Promise((resolve) => {
-    rl.question('Choose upload method (compress/chunk) [compress]: ', (answer) => {
+    rl.question('Choose upload method (compress/chunk) [chunk]: ', (answer) => {
       rl.close();
-      const method = answer.trim().toLowerCase() || 'compress';
+      const method = answer.trim().toLowerCase() || 'chunk';
       resolve(method as UploadMethod);
     });
   });
@@ -109,9 +105,9 @@ async function promptForDevice(): Promise<string[]> {
   });
 
   return new Promise((resolve) => {
-    rl.question('Enter device names to configure (D1, D2, P1) or "all" [D1] (comma-separated for multiple): ', (answer) => {
+    rl.question('Enter device names to configure (D1, D2, P1) or "all" [P1] (comma-separated for multiple): ', (answer) => {
       rl.close();
-      const input = answer.trim() || 'D1';  // Default to D1 if empty
+      const input = answer.trim() || 'P1';  // Default to D1 if empty
       
       if (input.toUpperCase() === 'ALL') {
         resolve(['ALL']);

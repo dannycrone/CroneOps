@@ -18,8 +18,10 @@ export interface ActionSet {
   }[];
 }
 
+export type BrightnessType = "adaptive" | "on" | "off" | "nightonlylow" | 'lowLight' | 'midLight' | 'highLight' | 'maxLight' | number;
+
 export interface Action {
   device: string;
   output: number;
-  brightness: "adaptive" | "on" | "off" | number;
+  brightness: BrightnessType;
 }

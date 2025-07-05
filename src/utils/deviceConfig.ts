@@ -44,7 +44,7 @@ export class DeviceConfigurer {
     const promises = Array.from({ length: 4 }, (_, i) =>
       axios.post(`${this.baseUrl}/${API_ENDPOINTS.INPUT_CONFIG}`, {
         id: i,
-        config: { type: DEFAULT_CONFIG.INPUT_TYPE }
+        config: { type: this.device.type === DEVICE_TYPES.DIMMER ? DEFAULT_CONFIG.BUTTON_TYPE : DEFAULT_CONFIG.SWITCH_TYPE}
       })
     );
     await Promise.all(promises);
@@ -127,11 +127,6 @@ export class DeviceConfigurer {
     const { data: created } = await axios.post(`${this.baseUrl}/${API_ENDPOINTS.SCRIPT_CREATE}`, {
       name
     });
-
-    const minifiedCode = await this.minifyCode(code);
-    console.log(`Original size: ${code.length} bytes`);
-    console.log(`Minified size: ${minifiedCode.length} bytes`);
-    console.log(`Reduction: ${((code.length - minifiedCode.length) / code.length * 100).toFixed(1)}%`);
 
     if (method === 'compress') {
       const minifiedCode = await this.minifyCode(code);

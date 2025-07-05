@@ -2,6 +2,12 @@ export const TIME_CONFIG = {
   DARK_START: 20, // 8 PM
   DARK_END: 6,   // 6 AM
 };
+export const LIGHT_CONFIG = {
+  LOW_LIGHT: 20, // 20% brightness
+  MID_LIGHT: 50, // 50% brightness
+  HIGH_LIGHT: 80, // 100% brightness
+  MAX_LIGHT: 100, // 100% brightness
+}
 
 export const API_ENDPOINTS = {
   SYS_CONFIG: 'rpc/Sys.SetConfig',
@@ -22,7 +28,8 @@ export const DEVICE_TYPES = {
 
 export const DEFAULT_CONFIG = {
   TIMEZONE: 'Europe/London',
-  INPUT_TYPE: 'button',
+  BUTTON_TYPE: 'button',
+  SWITCH_TYPE: 'switch',
   WIFI: {
     AP_ENABLED: true,
     STA_ENABLED: false,

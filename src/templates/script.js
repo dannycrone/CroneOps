@@ -1,18 +1,69 @@
-function getAdaptiveBrightness() {
+function clearPirTimer(state) {
+  if (state.timer !== null) {
+    Timer.clear(state.timer);
+    state.timer = null;
+  }
+}
+
+function handlePirMotion(input, urls, isOn) {
+  try {
+    var state = pirStates[input] || { isLightOn: false, timer: null };
+    pirStates[input] = state;
+
+    if (isOn) { // Motion
+      if (!state.isLightOn) {
+        for (const url of urls) {
+          httpGet(url);
+        }
+        state.isLightOn = true;
+      }
+      clearPirTimer(state);
+    } else { // Absence
+      if (state.isLightOn) {
+        clearPirTimer(state);
+        state.timer = Timer.set(pirMinutes * 60000, false, function() {
+          for (const url of urls) {
+            httpGet(url);
+          }
+          state.isLightOn = false;
+          state.timer = null;
+        });
+      }
+    }
+  } catch(e) {
+    ErrorMsg(e, 'handlePirMotion()');
+  }
+}
+
+function isNightTime() {
   let hour = (new Date()).getHours();
-  return (hour < 6 || hour >= 20) ? 80 : 50;
+  return (hour < morning || hour >= evening);
+}
+
+function dynamicUrl(url) {
+  // Replace placeholder with actual function call
+  return url.replace("%adaptive%", isNightTime() ? midLight : highLight)
+  .replace("%nightOnly%", isNightTime())
+  .replace("%lowLight%", lowLight)
+  .replace("%midLight%", midLight)
+  .replace("%highLight%", highLight)  
+  .replace("%maxLight%", maxLight);
 }
 
 function httpGet(url) {
   // Replace placeholder with actual function call
   Call('HTTP.get', {
-    url: url.replace("${getAdaptiveBrightness()}", getAdaptiveBrightness()),
+    url: dynamicUrl(url),
     timeout: 10
   });
 }
 
 function Event_Trigger(event) {
+  try {
 // EVENT_HANDLERS
+  } catch(e) {
+    ErrorMsg(e, 'Event_Trigger()');
+  }
 }
 
 function Main() {
@@ -242,7 +293,9 @@ function ErrorMsg(e, s) {
 //=========== Global Variables ===========//
 var tH7 = 0, tH8 = 0, tH9 = 0, aC = 0;
 var cCache = [], nCall = [], callLimit = 5, cacheLimit = 40, cSp = 0.2;
-
+var pirStates = {}, pirMinutes = 5;
+var morning = 6, evening = 20;
+var lowLight = 20, midLight = 50, highLight = 80, maxLight = 100;
 //=========== Renamed Native Functions ===========//
 var Status = Shelly.getComponentStatus;
 var Config = Shelly.getComponentConfig;
@@ -251,6 +304,7 @@ var Config = Shelly.getComponentConfig;
 var info = Shelly.getDeviceInfo();
 var scriptID = Shelly.getCurrentScriptId();
 var scriptN = Config('script', scriptID).name;
+var nightTime = isNightTime(); // Initial check for night time
 
 //=========== Initialize ===========//
 // Toolbox v2.0-Alpha(full), Shelly FW >1.0.2
