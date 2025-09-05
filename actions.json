@@ -1134,11 +1134,6 @@
             "device": "D23",
             "output": 1,
             "brightness": "highLight"
-          },
-          {
-            "device": "D24",
-            "output": 0,
-            "brightness": "highLight"
           }
         ]
       }
@@ -1164,11 +1159,6 @@
           {
             "device": "D23",
             "output": 1,
-            "brightness": "off"
-          },
-          {
-            "device": "D24",
-            "output": 0,
             "brightness": "off"
           }
         ]
@@ -2170,16 +2160,6 @@
             "device": "D10",
             "output": 0,
             "brightness": "adaptive"
-          },
-          {
-            "device": "D10",
-            "output": 1,
-            "brightness": "highLight"
-          },
-          {
-            "device": "D11",
-            "output": 0,
-            "brightness": "highLight"
           }
         ]
       },
@@ -2432,16 +2412,6 @@
             "device": "D10",
             "output": 0,
             "brightness": "adaptive"
-          },
-          {
-            "device": "D10",
-            "output": 1,
-            "brightness": "adaptive"
-          },
-          {
-            "device": "D11",
-            "output": 0,
-            "brightness": "adaptive"
           }
         ]
       },
@@ -2526,16 +2496,6 @@
           },
           {
             "device": "D10",
-            "output": 0,
-            "brightness": "off"
-          },
-          {
-            "device": "D10",
-            "output": 1,
-            "brightness": "off"
-          },
-          {
-            "device": "D11",
             "output": 0,
             "brightness": "off"
           }
@@ -2836,6 +2796,69 @@
             "device": "D11",
             "output": 1,
             "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D11",
+    "input": 0,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D10",
+            "output": 1,
+            "brightness": "adaptive"
+          },
+          {
+            "device": "D11",
+            "output": 0,
+            "brightness": "adaptive"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D11",
+    "input": 1,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D10",
+            "output": 1,
+            "brightness": "off"
+          },
+          {
+            "device": "D11",
+            "output": 0,
+            "brightness": "off"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "device": "D11",
+    "input": 2,
+    "actions": [
+      {
+        "trigger": "single_push",
+        "set": [
+          {
+            "device": "D10",
+            "output": 1,
+            "brightness": "highLight"
+          },
+          {
+            "device": "D11",
+            "output": 0,
+            "brightness": "highLight"
           }
         ]
       }
